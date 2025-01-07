@@ -5,7 +5,7 @@ from openai import OpenAI
 mcp = FastMCP("solution-assessor")
 
 client = OpenAI(
-    base_url=os.environ.get("OPENAI_BASE_URL", "https://gemini.mone.run/v1"),
+    base_url=os.environ.get("OPENAI_BASE_URL"),
 )
 model = os.environ.get("OPENAI_MODEL", "gemini-2.0-flash-exp")
 
