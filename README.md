@@ -1,37 +1,37 @@
 # solution-assessor
 
-**描述：**
+**Description:**
 
-solution-assessor 是一个 MCP (Model Context Protocol) 服务器，旨在提供问题和相应解决方案的评估和建议。它利用 OpenAI 的 API 来分析您提供的问题和解决方案，并指出潜在的问题或需要澄清的地方。
+solution-assessor is an MCP (Model Context Protocol) server designed to provide evaluation and suggestions for problems and corresponding solutions. It utilizes the OpenAI API to analyze the problem and solution you provide, and points out potential issues or areas that need clarification.
 
-**目标受众：** 开发者
+**Target Audience:** Developers
 
-**快速开始：**
+**Quick Start:**
 
-1. **前提条件：**
-   * 安装 Docker
-   * 拥有 OpenAI API 密钥
+1. **Prerequisites:**
+   * Docker installed
+   * An OpenAI API key
 
-2. **配置环境变量：**
-   在运行容器之前，需要设置以下环境变量：
-   * `OPENAI_BASE_URL`: 您的 OpenAI API Base URL。
-   * `OPENAI_MODEL`: 您想要使用的 OpenAI 模型名称 (可选，默认为 `gemini-2.0-flash-exp`)。
+2. **Configure Environment Variables:**
+   Before running the container, you need to set the following environment variables:
+   * `OPENAI_BASE_URL`: Your OpenAI API Base URL.
+   * `OPENAI_MODEL`: The name of the OpenAI model you want to use (optional, defaults to `gemini-2.0-flash-exp`).
 
-3. **构建 Docker 镜像：**
+3. **Build Docker Image:**
 
    ```bash
    docker buildx build --platform linux/amd64,linux/arm64 --tag rikaaa0928/solution-assessor:latest --push .
    ```
 
-   或者，您可以使用提供的 `build.sh` 脚本：
+   Alternatively, you can use the provided `build.sh` script:
 
    ```bash
    ./build.sh
    ```
 
-   **注意：** 构建镜像可能需要您登录 Docker Hub 并设置 `DOCKER_USERNAME` 和 `DOCKER_PASSWORD` 环境变量。
+   **Note:** Building the image may require you to log in to Docker Hub and set the `DOCKER_USERNAME` and `DOCKER_PASSWORD` environment variables.
 
-4. **在MCP Server中田间：**
+4. **Add to MCP Server:**
 
    "solution-assessor": {
       "command": "docker",
@@ -49,40 +49,44 @@ solution-assessor 是一个 MCP (Model Context Protocol) 服务器，旨在提�
       ]
     }
 
-   请将 `$OPENAI_BASE_URL`, `$OPENAI_API_KEY` 和 `$OPENAI_MODEL` 替换为您的实际值。
+   Please replace `$OPENAI_BASE_URL`, `$OPENAI_API_KEY`, and `$OPENAI_MODEL` with your actual values.
 
-**使用方法：**
+**Usage:**
 
-您可以通过 MCP 客户端与 solution-assessor 服务器进行交互，并调用 `solution_assessor` 工具来评估问题和解决方案。
+You can interact with the solution-assessor server through an MCP client and call the `solution_assessor` tool to evaluate problems and solutions.
 
-**工具：**
+**Tool:**
 
 * **solution_assessor:**
-  * 描述： 提供问题和相应解决方案的评估和建议
-  * 参数：
-    * `problem` (string, 必需): 待解决的问题
-    * `solution` (string, 必需): 针对该问题设计的解决方案
+  * Description: Provides evaluation and suggestions for problems and corresponding solutions.
+  * Parameters:
+    * `problem` (string, required): The problem to be solved.
+    * `solution` (string, required): The solution designed for the problem.
 
-  **调用示例：**
+  **Example Call:**
 
   ```json
   {
     "tool_name": "solution_assessor",
     "arguments": {
-      "problem": "如何解决 Docker 容器无法启动的问题？",
-      "solution": "检查 Docker 日志以获取错误信息。"
+      "problem": "How to solve the problem of a Docker container failing to start?",
+      "solution": "Check the Docker logs for error messages."
     }
   }
   ```
 
-  **评估结果：**
+  **Evaluation Result:**
 
-  OpenAI API 将返回一个包含评估结果的文本。例如：
+  The OpenAI API will return a text containing the evaluation result. For example:
 
   ```
-  该解决方案是一个很好的起点，但可以更具体一些。建议在检查 Docker 日志的基础上，进一步提供一些常见的排错步骤，例如检查端口冲突、镜像是否存在、资源限制等。
+  The solution is a good starting point, but it could be more specific. It is recommended to provide some common troubleshooting steps in addition to checking the Docker logs, such as checking for port conflicts, whether the image exists, resource limitations, etc.
   ```
 
-**贡献：**
+**Contribution:**
 
-欢迎提交 issue 和 pull request!
+Welcome to submit issues and pull requests!
+
+**License**
+
+This project is licensed under the MIT License. See the LICENSE file for more information.
