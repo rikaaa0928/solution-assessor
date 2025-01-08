@@ -7,7 +7,7 @@ mcp = FastMCP("solution-assessor")
 client = OpenAI(
     base_url=os.environ.get("OPENAI_BASE_URL"),
 )
-model = os.environ.get("OPENAI_MODEL", "gemini-2.0-flash-exp")
+model = os.environ.get("OPENAI_MODEL", "gpt-4o-mini")
 
 @mcp.tool()
 async def solution_assessor(problem, solution) -> str:

@@ -15,7 +15,7 @@ solution-assessor 是一个 MCP (Model Context Protocol) 服务器，旨在提�
 2. **配置环境变量：**
    在运行容器之前，需要设置以下环境变量：
    * `OPENAI_BASE_URL`: 您的 OpenAI API Base URL。
-   * `OPENAI_MODEL`: 您想要使用的 OpenAI 模型名称 (可选，默认为 `gemini-2.0-flash-exp`)。
+   * `OPENAI_MODEL`: 您想要使用的 OpenAI 模型名称 (可选，默认为 `gpt-4o-mini`)。
 
 3. **构建 Docker 镜像：**
 
