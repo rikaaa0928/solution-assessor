@@ -15,7 +15,7 @@ solution-assessor is an MCP (Model Context Protocol) server designed to provide 
 2. **Configure Environment Variables:**
    Before running the container, you need to set the following environment variables:
    * `OPENAI_BASE_URL`: Your OpenAI API Base URL.
-   * `OPENAI_MODEL`: The name of the OpenAI model you want to use (optional, defaults to `gemini-2.0-flash-exp`).
+   * `OPENAI_MODEL`: The name of the OpenAI model you want to use (optional, defaults to `gpt-4o-mini`).
 
 3. **Build Docker Image:**
 
