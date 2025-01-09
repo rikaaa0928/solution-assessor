@@ -31,7 +31,7 @@ solution-assessor 是一个 MCP (Model Context Protocol) 服务器，旨在提�
 
    **注意：** 构建镜像可能需要您登录 Docker Hub 并设置 `DOCKER_USERNAME` 和 `DOCKER_PASSWORD` 环境变量。
 
-4. **在MCP Server中田间：**
+4. **在MCP Server中田填写：**
 
    "solution-assessor": {
       "command": "docker",
