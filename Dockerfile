@@ -34,4 +34,4 @@ COPY --from=uv --chown=app:app /app/lowlevel.py /app/lowlevel.py
 ENV PATH="/app/.venv/bin:$PATH"
 
 # when running the container, add --db-path and a bind mount to the host's db file
-ENTRYPOINT ["python","lowlevel.py"]
+ENTRYPOINT ["sh","-c","python lowlevel.py 2>/dev/null"]

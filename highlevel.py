@@ -21,7 +21,8 @@ async def solution_assessor(problem, solution) -> str:
         response = client.chat.completions.create(
             model=model,
             messages=[
-                {"role": "system", "content": "请评估以下问题和解决方案，并指出是否存在问题，或者是否需要提问者提供更多信息来澄清问题。"},
+                {"role": "system",
+                 "content": "请评估以下问题和解决方案，并指出是否存在问题，或者是否需要提问者提供更多信息来澄清问题。回答请尽量简洁清晰，直奔主题"},
                 {"role": "user", "content": f"问题: {problem}\n解决方案: {solution}"},
             ],
             temperature=0

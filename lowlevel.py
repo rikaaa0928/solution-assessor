@@ -6,11 +6,11 @@ import os
 from openai import OpenAI
 
 # Create a server instance
-app = Server("solution-assessor-server")
+app = Server("solution-assessor")
 client = OpenAI(
     base_url=os.environ.get("OPENAI_BASE_URL"),
 )
-model = os.environ.get("OPENAI_MODEL", "gemini-2.0-flash-exp")
+model = os.environ.get("OPENAI_MODEL", "gpt-4o-mini")
 
 
 @app.list_tools()
@@ -44,7 +44,7 @@ async def call_tool(
                 model=model,
                 messages=[
                     {"role": "system",
-                     "content": "请评估以下问题和解决方案，并指出是否存在问题，或者是否需要提问者提供更多信息来澄清问题。"},
+                     "content": "请评估以下问题和解决方案，并指出是否存在问题，或者是否需要提问者提供更多信息来澄清问题。回答请尽量简洁清晰，直奔主题"},
                     {"role": "user", "content": f"问题: {problem}\n解决方案: {solution}"},
                 ],
                 temperature=0
