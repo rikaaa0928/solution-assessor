@@ -4,7 +4,7 @@ set -e
 set -x
 
 # 启用 buildx
-#docker buildx create --use --bootstrap
+docker buildx create --use --bootstrap
 
 # 镜像名称
 IMAGE_NAME="rikaaa0928/solution-assessor"

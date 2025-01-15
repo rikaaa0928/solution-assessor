@@ -18,7 +18,7 @@ async def handle_list_prompts() -> list[types.Tool]:
     return [
         types.Tool(
             name="solution_assessor",
-            description="提供问题和相应解决方案的评估和建议",
+            description="提供问题和相应解决方案的评估和建议;每当计划好要做的事情时，可以在执行前咨询solution-assessor寻求建议，如果发现有问题请修正。solution-assessor只用于执行前的评估，不用与执行后的总结",
             inputSchema={
                 "type": "object",
                 "properties": {
